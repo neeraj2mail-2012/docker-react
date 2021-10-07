@@ -1,0 +1,32 @@
+version: '3.8'
+services: 
+  web:
+    build:  # indicate the dockerfile inside the dir
+      context: .
+      dockerfile: Dockerfile.dev
+    command: npm start    
+    volumes:
+      #- /app/node_modules
+      #- .:/app
+
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    stdin_open: true
+  # test:
+  #   build:  # indicate the dockerfile inside the dir
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   command: npm start    
+  #   volumes:
+  #     #- /app/node_modules
+  #     #- .:/app
+
+  #     - /usr/src/app/node_modules
+  #     - .:/usr/src/app
+  #   command: npm run test
+  #   stdin_open: true
+
+
+
