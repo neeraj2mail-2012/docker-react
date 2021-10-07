@@ -15,6 +15,7 @@ CMD npm run build
 # Copy over the build content of app, there must be a single FROM,
 # nginx will take control of prvious bloak
 FROM nginx
+EXPOSE 80
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
 
